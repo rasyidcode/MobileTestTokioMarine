@@ -1,0 +1,48 @@
+{
+    "total_count": 2,
+    "incomplete_results": false,
+    "items": [
+        {
+            "login": "rasyidcode",
+            "id": 30698830,
+            "node_id": "MDQ6VXNlcjMwNjk4ODMw",
+            "avatar_url": "https://avatars.githubusercontent.com/u/30698830?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/rasyidcode",
+            "html_url": "https://github.com/rasyidcode",
+            "followers_url": "https://api.github.com/users/rasyidcode/followers",
+            "following_url": "https://api.github.com/users/rasyidcode/following{/other_user}",
+            "gists_url": "https://api.github.com/users/rasyidcode/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/rasyidcode/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/rasyidcode/subscriptions",
+            "organizations_url": "https://api.github.com/users/rasyidcode/orgs",
+            "repos_url": "https://api.github.com/users/rasyidcode/repos",
+            "events_url": "https://api.github.com/users/rasyidcode/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/rasyidcode/received_events",
+            "type": "User",
+            "site_admin": false,
+            "score": 1.0
+        },
+        {
+            "login": "rubickmagic96",
+            "id": 38910998,
+            "node_id": "MDQ6VXNlcjM4OTEwOTk4",
+            "avatar_url": "https://avatars.githubusercontent.com/u/38910998?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/rubickmagic96",
+            "html_url": "https://github.com/rubickmagic96",
+            "followers_url": "https://api.github.com/users/rubickmagic96/followers",
+            "following_url": "https://api.github.com/users/rubickmagic96/following{/other_user}",
+            "gists_url": "https://api.github.com/users/rubickmagic96/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/rubickmagic96/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/rubickmagic96/subscriptions",
+            "organizations_url": "https://api.github.com/users/rubickmagic96/orgs",
+            "repos_url": "https://api.github.com/users/rubickmagic96/repos",
+            "events_url": "https://api.github.com/users/rubickmagic96/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/rubickmagic96/received_events",
+            "type": "User",
+            "site_admin": false,
+            "score": 1.0
+        }
+    ]
+}
