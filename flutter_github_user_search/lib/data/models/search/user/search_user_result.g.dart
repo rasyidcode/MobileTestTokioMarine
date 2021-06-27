@@ -1,22 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of search_result;
+part of search_user_result;
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<SearchResult> _$searchResultSerializer =
-    new _$SearchResultSerializer();
+Serializer<SearchUserResult> _$searchUserResultSerializer =
+    new _$SearchUserResultSerializer();
 
-class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
+class _$SearchUserResultSerializer
+    implements StructuredSerializer<SearchUserResult> {
   @override
-  final Iterable<Type> types = const [SearchResult, _$SearchResult];
+  final Iterable<Type> types = const [SearchUserResult, _$SearchUserResult];
   @override
-  final String wireName = 'SearchResult';
+  final String wireName = 'SearchUserResult';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SearchResult object,
+  Iterable<Object?> serialize(Serializers serializers, SearchUserResult object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'total_count',
@@ -32,10 +33,10 @@ class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
   }
 
   @override
-  SearchResult deserialize(
+  SearchUserResult deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SearchResultBuilder();
+    final result = new SearchUserResultBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -60,33 +61,35 @@ class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
   }
 }
 
-class _$SearchResult extends SearchResult {
+class _$SearchUserResult extends SearchUserResult {
   @override
   final int totalCount;
   @override
   final BuiltList<GithubUser> users;
 
-  factory _$SearchResult([void Function(SearchResultBuilder)? updates]) =>
-      (new SearchResultBuilder()..update(updates)).build();
+  factory _$SearchUserResult(
+          [void Function(SearchUserResultBuilder)? updates]) =>
+      (new SearchUserResultBuilder()..update(updates)).build();
 
-  _$SearchResult._({required this.totalCount, required this.users})
+  _$SearchUserResult._({required this.totalCount, required this.users})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        totalCount, 'SearchResult', 'totalCount');
-    BuiltValueNullFieldError.checkNotNull(users, 'SearchResult', 'users');
+        totalCount, 'SearchUserResult', 'totalCount');
+    BuiltValueNullFieldError.checkNotNull(users, 'SearchUserResult', 'users');
   }
 
   @override
-  SearchResult rebuild(void Function(SearchResultBuilder) updates) =>
+  SearchUserResult rebuild(void Function(SearchUserResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SearchResultBuilder toBuilder() => new SearchResultBuilder()..replace(this);
+  SearchUserResultBuilder toBuilder() =>
+      new SearchUserResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SearchResult &&
+    return other is SearchUserResult &&
         totalCount == other.totalCount &&
         users == other.users;
   }
@@ -98,16 +101,16 @@ class _$SearchResult extends SearchResult {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('SearchResult')
+    return (newBuiltValueToStringHelper('SearchUserResult')
           ..add('totalCount', totalCount)
           ..add('users', users))
         .toString();
   }
 }
 
-class SearchResultBuilder
-    implements Builder<SearchResult, SearchResultBuilder> {
-  _$SearchResult? _$v;
+class SearchUserResultBuilder
+    implements Builder<SearchUserResult, SearchUserResultBuilder> {
+  _$SearchUserResult? _$v;
 
   int? _totalCount;
   int? get totalCount => _$this._totalCount;
@@ -118,9 +121,9 @@ class SearchResultBuilder
       _$this._users ??= new ListBuilder<GithubUser>();
   set users(ListBuilder<GithubUser>? users) => _$this._users = users;
 
-  SearchResultBuilder();
+  SearchUserResultBuilder();
 
-  SearchResultBuilder get _$this {
+  SearchUserResultBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _totalCount = $v.totalCount;
@@ -131,24 +134,24 @@ class SearchResultBuilder
   }
 
   @override
-  void replace(SearchResult other) {
+  void replace(SearchUserResult other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SearchResult;
+    _$v = other as _$SearchUserResult;
   }
 
   @override
-  void update(void Function(SearchResultBuilder)? updates) {
+  void update(void Function(SearchUserResultBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$SearchResult build() {
-    _$SearchResult _$result;
+  _$SearchUserResult build() {
+    _$SearchUserResult _$result;
     try {
       _$result = _$v ??
-          new _$SearchResult._(
+          new _$SearchUserResult._(
               totalCount: BuiltValueNullFieldError.checkNotNull(
-                  totalCount, 'SearchResult', 'totalCount'),
+                  totalCount, 'SearchUserResult', 'totalCount'),
               users: users.build());
     } catch (_) {
       late String _$failedField;
@@ -157,7 +160,7 @@ class SearchResultBuilder
         users.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'SearchResult', _$failedField, e.toString());
+            'SearchUserResult', _$failedField, e.toString());
       }
       rethrow;
     }

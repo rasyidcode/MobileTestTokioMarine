@@ -2,7 +2,6 @@ library github_user;
 
 import 'dart:convert';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:flutter_github_user_search/data/models/serializer/serializers.dart';

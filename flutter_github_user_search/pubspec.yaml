@@ -33,6 +33,7 @@ dependencies:
   kiwi: ^3.0.0
   http: ^0.13.3
   flutter_bloc: ^7.0.1
+  url_launcher: ^6.0.7
 
 
 dev_dependencies:

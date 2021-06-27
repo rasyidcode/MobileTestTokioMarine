@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_github_user_search/data/models/search/user/github_user.dart';
+import 'package:flutter_github_user_search/ui/detail/user_detail_args.dart';
 import 'package:flutter_github_user_search/ui/search/user/search_user_bloc.dart';
 import 'package:flutter_github_user_search/ui/search/user/search_user_state.dart';
 import 'package:flutter_github_user_search/ui/search/user/widgets/centered_text.dart';
+import 'package:flutter_github_user_search/ui/search/user/widgets/search_user_bar.dart';
 import 'package:kiwi/kiwi.dart';
 
 class SearchUserPage extends StatefulWidget {
@@ -52,7 +54,9 @@ class _SearchUserPageState extends State<SearchUserPage> {
               return _buildResultUsersList(state);
             } else {
               return CenteredText(
-                  message: 'message', icon: Icons.error_outline);
+                message: state.error,
+                icon: Icons.error_outline,
+              );
             }
           },
         ),
@@ -79,7 +83,9 @@ class _SearchUserPageState extends State<SearchUserPage> {
           itemBuilder: (BuildContext context, int index) {
             return index >= state.users.length
                 ? Center(child: CircularProgressIndicator())
-                : _buildUserListItem(state.users[index]);
+                : _buildUserListItem(
+                    state.users[index],
+                  );
           },
         ),
       ),
@@ -90,71 +96,30 @@ class _SearchUserPageState extends State<SearchUserPage> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListTile(
-            leading: CircleAvatar(
+        child: ListTile(
+          contentPadding: const EdgeInsets.all(8.0),
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              '/user_detail',
+              arguments: UserDetailArgs(
+                (b) => b..login = user.login,
+              ),
+            );
+          },
+          leading: Hero(
+            tag: user.login,
+            child: CircleAvatar(
               backgroundImage: NetworkImage(user.avatarUrl),
               radius: 30.0,
             ),
-            title: Text(
-              user.login,
+          ),
+          title: Text(
+            user.login,
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class SearchUserBar extends StatefulWidget {
-  SearchUserBar({Key? key}) : super(key: key);
-
-  @override
-  _SearchUserBarState createState() => _SearchUserBarState();
-}
-
-class _SearchUserBarState extends State<SearchUserBar> {
-  final TextEditingController _searchUserController = TextEditingController();
-  final FocusNode _focusNode = FocusNode();
-
-  @override
-  void initState() {
-    super.initState();
-    _focusNode.addListener(() {
-      if (_focusNode.hasFocus) {
-        _searchUserController.selection = TextSelection(
-            baseOffset: 0, extentOffset: _searchUserController.text.length);
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 5),
-        child: TextField(
-          style: TextStyle(color: Colors.black87),
-          controller: _searchUserController,
-          focusNode: _focusNode,
-          decoration: InputDecoration(
-            hintText: 'Search Users',
-            hintStyle: TextStyle(color: Colors.black87),
-            border: InputBorder.none,
-            icon: Icon(
-              Icons.search,
-              color: Colors.black.withOpacity(0.5),
-            ),
-          ),
-          onSubmitted: (searchQuery) {
-            BlocProvider.of<SearchUserBloc>(context)
-                .onSearchInitiated(searchQuery);
-          },
         ),
       ),
     );

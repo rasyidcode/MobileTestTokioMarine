@@ -8,7 +8,8 @@ part of serializers;
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GithubUser.serializer)
-      ..add(SearchResult.serializer)
+      ..add(GithubUserDetail.serializer)
+      ..add(SearchUserResult.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GithubUser)]),
           () => new ListBuilder<GithubUser>()))

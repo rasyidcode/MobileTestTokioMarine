@@ -1,4 +1,4 @@
-library search_result;
+library search_user_result;
 
 import 'dart:convert';
 
@@ -8,29 +8,30 @@ import 'package:built_value/serializer.dart';
 import 'package:flutter_github_user_search/data/models/search/user/github_user.dart';
 import 'package:flutter_github_user_search/data/models/serializer/serializers.dart';
 
-part 'search_result.g.dart';
+part 'search_user_result.g.dart';
 
-abstract class SearchResult
-    implements Built<SearchResult, SearchResultBuilder> {
-  // fields go here
+abstract class SearchUserResult
+    implements Built<SearchUserResult, SearchUserResultBuilder> {
   @BuiltValueField(wireName: 'total_count')
   int get totalCount;
   @BuiltValueField(wireName: 'items')
   BuiltList<GithubUser> get users;
 
-  SearchResult._();
+  SearchUserResult._();
 
-  factory SearchResult([updates(SearchResultBuilder b)]) = _$SearchResult;
+  factory SearchUserResult([updates(SearchUserResultBuilder b)]) =
+      _$SearchUserResult;
 
   String toJson() {
     return json
-        .encode(serializers.serializeWith(SearchResult.serializer, this));
+        .encode(serializers.serializeWith(SearchUserResult.serializer, this));
   }
 
-  static SearchResult? fromJson(String jsonString) {
+  static SearchUserResult? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        SearchResult.serializer, json.decode(jsonString));
+        SearchUserResult.serializer, json.decode(jsonString));
   }
 
-  static Serializer<SearchResult> get serializer => _$searchResultSerializer;
+  static Serializer<SearchUserResult> get serializer =>
+      _$searchUserResultSerializer;
 }
